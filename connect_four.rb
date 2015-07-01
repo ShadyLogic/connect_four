@@ -126,7 +126,8 @@ def run_game(connect_four)
   until Game.gameover?
     system('clear')
     Game.display_board(Game.rotate_board(connect_four.board))
-    connect_four.drop_piece(Game.get_user_input)
+    until connect_four.drop_piece(Game.get_user_input)
+    end
     Game.check_win(connect_four.board)
     Game.next_player unless Game.gameover?
   end
